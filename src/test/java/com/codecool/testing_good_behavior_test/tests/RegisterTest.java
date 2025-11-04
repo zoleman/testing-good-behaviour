@@ -1,7 +1,7 @@
 package com.codecool.testing_good_behavior_test.tests;
 
 import com.codecool.testing_good_behavior_test.base.BaseTest;
-import com.codecool.testing_good_behavior_test.pages.RegisterPage;
+import com.codecool.testing_good_behavior.pages.RegisterPage;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;

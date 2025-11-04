@@ -1,4 +1,4 @@
-package com.codecool.testing_good_behavior_test.pages;
+package com.codecool.testing_good_behavior.pages;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -18,7 +18,7 @@ public class RegisterPage {
     private final By submitButton = By.xpath("//button[@type='submit']");
     private final By cancelButton = By.xpath("//button[text()='Cancel']");
     private final By errorModal = By.xpath("//div[@class='modal']");
-
+    private final By okButton = By.xpath("//button[normalize-space()='OK']");
 
     public RegisterPage(WebDriver driver) {
         this.driver = driver;
@@ -52,7 +52,7 @@ public class RegisterPage {
     }
 
     public void registerNewUser(String username, String password, String email){
-        //wait.until(ExpectedConditions.visibilityOfElementLocated(registerForm));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(registerForm));
         removeHtml5ValidationFromForm(registerForm);
         wait.until(ExpectedConditions.visibilityOfElementLocated(usernameField)).sendKeys(username);
         wait.until(ExpectedConditions.visibilityOfElementLocated(emailField)).sendKeys(email);
@@ -62,6 +62,7 @@ public class RegisterPage {
     }
 
     public String modalMessage(){
+        wait.until(ExpectedConditions.elementToBeClickable(okButton));
         return wait.until(ExpectedConditions.visibilityOfElementLocated(errorModal)).getText().trim();
     }
 }

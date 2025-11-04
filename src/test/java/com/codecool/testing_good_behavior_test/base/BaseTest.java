@@ -24,7 +24,7 @@ public abstract class BaseTest {
     public void setup() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get("http://localhost:5173//");
+        //driver.get("http://localhost:5173//");
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
 
     }
@@ -32,7 +32,7 @@ public abstract class BaseTest {
     @AfterEach
     public void teardown() {
         if (driver != null) {
-            driver.quit();
+            //driver.quit();
         }
     }
 }
