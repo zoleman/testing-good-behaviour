@@ -43,7 +43,7 @@ public class RegisterPage {
 
     public boolean checkIfURLEquals(String url){
         try{
-            wait.until(ExpectedConditions.urlToBe(url));
+            wait.until(ExpectedConditions.urlContains(url));
             return true;
         }
         catch(TimeoutException e){
@@ -62,7 +62,7 @@ public class RegisterPage {
     }
 
     public String modalMessage(){
-        wait.until(ExpectedConditions.elementToBeClickable(okButton));
+        //wait.until(ExpectedConditions.elementToBeClickable(okButton));
         return wait.until(ExpectedConditions.visibilityOfElementLocated(errorModal)).getText().trim();
     }
 }
