@@ -30,9 +30,10 @@ public abstract class BaseTest {
     }
 
     @AfterEach
-    public void teardown() {
+    public void teardown() throws InterruptedException {
         if (driver != null) {
             driver.quit();
+            Thread.sleep(1000);
         }
     }
 }
